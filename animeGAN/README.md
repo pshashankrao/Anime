@@ -3,7 +3,7 @@
 
 **Updates**
 
-* `2021-10-17` Add weights for [FacePortraitV2](#additional-model-weights). [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bryandlee/animegan2-pytorch/blob/main/colab_demo.ipynb)
+* `2021-10-17` Add weights for [FacePortraitV2](#additional-model-weights). [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pshashankrao/Anime/animeGAN/blob/main/colab_demo.ipynb)
 
     ![sample](https://user-images.githubusercontent.com/26464535/142294796-54394a4a-a566-47a1-b9ab-4e715b901442.gif)
 
@@ -26,23 +26,23 @@ You can load the model via `torch.hub`:
 
 ```python
 import torch
-model = torch.hub.load("bryandlee/animegan2-pytorch", "generator").eval()
+model = torch.hub.load("pshashankrao/Anime/animeGAN", "generator").eval()
 out = model(img_tensor)  # BCHW tensor
 ```
 
 Currently, the following `pretrained` shorthands are available:
 ```python
-model = torch.hub.load("bryandlee/animegan2-pytorch:main", "generator", pretrained="celeba_distill")
-model = torch.hub.load("bryandlee/animegan2-pytorch:main", "generator", pretrained="face_paint_512_v1")
-model = torch.hub.load("bryandlee/animegan2-pytorch:main", "generator", pretrained="face_paint_512_v2")
-model = torch.hub.load("bryandlee/animegan2-pytorch:main", "generator", pretrained="paprika")
+model = torch.hub.load("pshashankrao/Anime/animeGAN:main", "generator", pretrained="celeba_distill")
+model = torch.hub.load("pshashankrao/Anime/animeGAN:main", "generator", pretrained="face_paint_512_v1")
+model = torch.hub.load("pshashankrao/Anime/animeGAN:main", "generator", pretrained="face_paint_512_v2")
+model = torch.hub.load("pshashankrao/Anime/animeGAN:main", "generator", pretrained="paprika")
 ```
 
 You can also load the `face2paint` util function:
 ```python
 from PIL import Image
 
-face2paint = torch.hub.load("bryandlee/animegan2-pytorch:main", "face2paint", size=512)
+face2paint = torch.hub.load("pshashankrao/Anime/animeGAN:main", "face2paint", size=512)
 
 img = Image.open(...).convert("RGB")
 out = face2paint(model, img)
@@ -51,11 +51,11 @@ More details about `torch.hub` is in [the torch docs](https://pytorch.org/docs/s
 
 
 ## Weight Conversion from the Original Repo (Tensorflow)
-1. Install the [original repo's dependencies](https://github.com/TachibanaYoshino/AnimeGANv2#requirements): python 3.6, tensorflow 1.15.0-gpu
+1. Install the [original repo's dependencies](https://github.com/pshashankrao/Anime/animeGAN#requirements): python 3.6, tensorflow 1.15.0-gpu
 2. Install torch >= 1.7.1
 3. Clone the original repo & run
 ```
-git clone https://github.com/TachibanaYoshino/AnimeGANv2
+git clone https://github.com/pshashankrao/Anime/animeGAN
 python convert_weights.py
 ```
 
